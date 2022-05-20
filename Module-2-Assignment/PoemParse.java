@@ -24,8 +24,8 @@ class PoemParse {
 
         try {
 
-            // The scanner did not want to print the file but DID take in the file
-            // so I used a buffered reader, which seems to work better,
+            // A scanner did not want to print the file contents but DID take in the file?
+            // so I used a buffered reader instead, which seems to work better,
             // because I suck at troubleshooting
             File poemFile = new File("testFile.txt");
             BufferedReader poemBuffer = new BufferedReader(new FileReader(poemFile));
@@ -43,7 +43,9 @@ class PoemParse {
 
                 }
             }
-
+            
+            // This WOULD print out the list of word and count pairs
+            // but my code is bonk so it does nothing right now
             for (Map.Entry<String, Integer> w : wordMap.entrySet()) {
                 System.out.println(w.getKey() + " " + w.getValue());
             }

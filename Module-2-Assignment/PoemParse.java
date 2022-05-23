@@ -30,7 +30,7 @@ class PoemParse {
             // This loop would populate the hashmap if I knew how to code
             while ((text = poemBuffer.readLine()) != null) {
 
-                String[] textArr = text.split("[\\W]+");
+                String[] textArr = text.split("[\\W\\s]+");
                 for (String w : textArr) {
                     if (wordMap.containsKey(w)) {
                         wordMap.put(w, wordMap.get(w) + 1);
@@ -39,6 +39,8 @@ class PoemParse {
                 }
             }
 
+            // This WOULD print out the list of word and count pairs
+            // but my code is bonk so it does nothing right now
             for (Map.Entry<String, Integer> w : wordMap.entrySet()) {
                 System.out.println("Key: " + w.getKey() + " :: Value: " + w.getValue());
             }

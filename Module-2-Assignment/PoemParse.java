@@ -14,20 +14,17 @@ class PoemParse {
 
     public static void main(String[] args) throws Exception {
 
-        // I was using an array list originally because I don't often
-        // work with hashmaps, or java in general, but was suggested it
-        // Hashmap seems like the perfect solution for the set of pairs
-        // output, key value style
         HashMap<String, Integer> wordMap = new HashMap<>();
         String text;
 
+        // This text was used for testing purposes w/o a file input
         String poemText = "Once upon a midnight dreary while I pondered weak and weary Over many a quaint and curious volume of forgotten lore";
 
         try {
             File poemFile = new File("testFile.txt");
             BufferedReader poemBuffer = new BufferedReader(new FileReader(poemFile));
 
-            // This loop would populate the hashmap if I knew how to code
+            // Populating the hashmap with the line String and their frequency
             while ((text = poemBuffer.readLine()) != null) {
 
                 String[] textArr = text.split("[\\W\\s]+");
@@ -39,8 +36,7 @@ class PoemParse {
                 }
             }
 
-            // This WOULD print out the list of word and count pairs
-            // but my code is bonk so it does nothing right now
+            // Prints out the map keys and their frequency
             for (Map.Entry<String, Integer> w : wordMap.entrySet()) {
                 System.out.println("Key: " + w.getKey() + " :: Value: " + w.getValue());
             }

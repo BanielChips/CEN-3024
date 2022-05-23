@@ -8,8 +8,7 @@
 // times it occurred in the file.
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 class PoemParse {
 
@@ -22,30 +21,26 @@ class PoemParse {
         HashMap<String, Integer> wordMap = new HashMap<>();
         String text;
 
-        try {
+        String poemText = "Once upon a midnight dreary while I pondered weak and weary Over many a quaint and curious volume of forgotten lore";
 
-            // The scanner did not want to print the file but DID take in the file
-            // so I used a buffered reader, which seems to work better,
-            // because I suck at troubleshooting
+        try {
             File poemFile = new File("testFile.txt");
             BufferedReader poemBuffer = new BufferedReader(new FileReader(poemFile));
 
             // This loop would populate the hashmap if I knew how to code
             while ((text = poemBuffer.readLine()) != null) {
-                String[] textArr = text.split("(\\W+\\s+)");
 
+                String[] textArr = text.split("[\\W]+");
                 for (String w : textArr) {
                     if (wordMap.containsKey(w)) {
                         wordMap.put(w, wordMap.get(w) + 1);
-                    } else {
-                        wordMap.put(w, wordMap.get(w));
-                    }
-
+                    } else
+                        wordMap.put(w, 1);
                 }
             }
 
             for (Map.Entry<String, Integer> w : wordMap.entrySet()) {
-                System.out.println(w.getKey() + " " + w.getValue());
+                System.out.println("Key: " + w.getKey() + " :: Value: " + w.getValue());
             }
 
             poemBuffer.close();

@@ -30,7 +30,7 @@ public class PoemParseFX extends Application {
         layout.getChildren().add(file_Input);
         layout.getChildren().add(file_Output);
 
-        Scene scene = new Scene(root, 420, 400);
+        Scene scene = new Scene(root, 400, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
 

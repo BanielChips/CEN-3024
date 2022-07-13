@@ -6,10 +6,24 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch PoemParseFX",
+            "request": "launch",
+            "mainClass": "PoemPackage.PoemParseFX",
+            "projectName": "Mod6_Project_File_2c5fa813"
+        },
+        {
+            "type": "java",
+            "name": "Launch PoemParseFX",
+            "request": "launch",
+            "mainClass": "PoemPackage.PoemParseFX",
+            "projectName": "Mod6_Project_File"
+        },
+        {
+            "type": "java",
             "name": "Launch PoemParseGUI",
             "request": "launch",
             "mainClass": "PoemPackage.PoemParseGUI",
-            "projectName": "Mod6_Project_File_3e47bfe8"
+            "projectName": "Mod6_Project_File"
         },
         {
             "type": "java",

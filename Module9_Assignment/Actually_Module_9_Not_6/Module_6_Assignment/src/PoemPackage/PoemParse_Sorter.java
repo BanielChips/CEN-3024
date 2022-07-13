@@ -4,19 +4,22 @@ package PoemPackage;
 import java.io.*;
 import java.util.*;
 
+/**
+ * Logic class to handle the parse, sort, and print.
+ * Launch file is PoemParseFX.java.
+ * 
+ * @author Daniel Reecy
+ * @version 4 - Module 9
+ */
 public class PoemParse_Sorter {
-
-    // Function takes in a HashMap, sorts it to a new HashMap,
-    // then returns that sorted map
     public static HashMap<String, Integer> mapSort(HashMap<String, Integer> map) {
-
         List<Map.Entry<String, Integer>> mapList = new ArrayList<Map.Entry<String, Integer>>(map.entrySet());
+
         Collections.sort(mapList, new Comparator<Map.Entry<String, Integer>>() {
             public int compare(Map.Entry<String, Integer> firstMap, Map.Entry<String, Integer> secondMap) {
                 return (secondMap.getValue()).compareTo(firstMap.getValue());
             }
         });
-
         HashMap<String, Integer> populateMap = new LinkedHashMap<String, Integer>();
         for (Map.Entry<String, Integer> entry : mapList) {
             populateMap.put(entry.getKey(), entry.getValue());
@@ -25,19 +28,21 @@ public class PoemParse_Sorter {
         return populateMap;
     }
 
-    /*
-     **************************************************
-     * Return method
-     * to take in a txt file, then return a String filled
-     * with the contents of a sorted HashMap containing each
-     * individual word in the file and their frequencies
-     * !--> call this method inside the controller <--!
-     **************************************************
+    /**
+     * Takes in a specified file path of a txt file,
+     * parses the file contents for String characters
+     * only. The parse output is organized and then
+     * formatted. Returns the file contents as a String.
+     * 
+     * @param path File path of poem txt.
+     * @return String contents of file.
+     *         Contents are sorted and printed descending
+     *         in order of frequency of occurrence
+     * @throws Exception
      */
     public static String fileFreqSort(String path) throws Exception {
 
         // this map will contain the words in the text and their frequency of occurence
-        // word frequency is counted at the same time as the word is added to the map
         HashMap<String, Integer> wordMap = new HashMap<>();
         String text;
 
@@ -67,11 +72,8 @@ public class PoemParse_Sorter {
             System.out.println("Something isn't groovy");
             e.printStackTrace();
         }
-        // end try catch
 
-        // converting the contents of the sorted map to a StringBuilder
-        // to then return that StringBuilder as a String.
-        // Probably a much easier way to do this but NO.
+        // converting the contents of the sorted map to StringBuilder for return call.
         Map<String, Integer> sortedMap = mapSort(wordMap);
         StringBuilder mapAsString = new StringBuilder();
         for (String key : sortedMap.keySet()) {

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: ClientServerPack.Server.java
+Main-Class: ClientServerPack.Client.java
+Class-Path: .
